@@ -1,60 +1,39 @@
-from mapbook.crud import add_user, read_users
+import folium
+import requests
+from bs4 import BeautifulSoup
 
 users: list = [
-    {'name': 'Patryk', 'posts': 1, 'city': 'Warszawa'},
-    {'name': 'Patryk', 'posts': 1, 'city': 'Warszawa'},
-    {'name': 'Tomek', 'posts': 1, 'city': 'Warszawa'},
-    {'name': 'Julia', 'posts': 1, 'city': 'Warszawa'},
-
+    {'name': 'Dominik', 'posts': 1, 'city': 'Poznań'},
+    {'name': 'Julia', 'posts': 1, 'city': 'Zamość'},
+    {'name': 'Patryk', 'posts': 1, 'city': 'Łódź'},
+    {'name': 'Patrycja', 'posts': 1, 'city': 'Zielona_Góra'},
 ]
-
-def remove_user(userlist:list)->None:
-    user_to_find:str=input("podaj imię do usunięcia:")
-    for user in userlist:
-        if user['name'] == user_to_find:
-            print(f'usuwam: {user}')
-            userlist.remove(user)
-
-# remove_user(users)
-
-def update_user(userlist:list)->None:
-    user_to_find: str = input("podaj imię użytkownika do aktualizacji:")
-    for user in userlist:
-        if user['name'] == user_to_find:
-            new_name: str = input("proszę podać nowe imię znajomego ")
-            new_posts: int = int(input("podaj nową liczbę postów "))
-            new_city: str = input("podaj nowe miasto ")
-            user["name"] = new_name
-            user["posts"] = new_posts
-            user["city"] = new_city
+# for user in users:
+#     print(user["city"])
+#     url:str=f"https://pl.wikipedia.org/wiki/{user["city"]}"
+#     response = requests.get(url)
+#     # print(response.text)
+#     response_html = BeautifulSoup(response.text, "html.parser")
+#     latitude:float=float(response_html.select(".latitude")[1].text.replace(",","."))
+#     print (latitude)
+#     longitude:float=float(response_html.select(".longitude")[1].text.replace(",","."))
+#     print (longitude)
+#     my_map=folium.Map(location=[latitude,longitude], zoom_start=11)
+#     folium.Marker(location=[latitude,longitude],popup=f"{user['city']},{user['name']}").add_to(my_map)
+#     my_map.save(f"map_{user["city"]}.html")
 
 
-# update_user(users)
+my_map=folium.Map(location=[51.919231, 19.134422], zoom_start=6)
+for user in users:
+    print(user["city"])
+    url:str=f"https://pl.wikipedia.org/wiki/{user["city"]}"
+    response = requests.get(url)
+    # print(response.text)
+    response_html = BeautifulSoup(response.text, "html.parser")
+    latitude:float=float(response_html.select(".latitude")[1].text.replace(",","."))
+    print (latitude)
+    longitude:float=float(response_html.select(".longitude")[1].text.replace(",","."))
+    print (longitude)
 
-while True:
-    print("======MENU======")
-    print("0. Wyjście z programu")
-    print("1. Dodaj znajomego")
-    print("2. Wczytaj znajomego")
-    print("3. Aktualizuj znajomego")
-    print("4. Usuń znajomego")
-    print("5. Generuj mapę z lokalizacją znajomego")
-    print("6. Generuj mapę z lokalizacją wszystkich znajomych")
-
-
-    menu_option:str=input("użytkowniku wybierz opcje menu:")
-    print(f"użytkownik wybrał {menu_option}")
-    if menu_option == "0":
-        break
-    if menu_option == "1":
-        add_user(users)
-    if menu_option == "2":
-        read_users(users)
-    if menu_option == "3":
-        update_user(users)
-    if menu_option == "4":
-        remove_user(users)
-    if menu_option == "5":
-        pass
-    if menu_option == "6":
-        pass
+    folium.Marker(location=[latitude,longitude],popup=f"{user['city']},{user['name']}").add_to(my_map)
+my_map.save(f"map.html")
