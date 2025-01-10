@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ce09dee-9d3b-41ec-8672-29f4409ca4ec" name="Changes" comment="feat: gui map new user class">
+    <list default="true" id="9ce09dee-9d3b-41ec-8672-29f4409ca4ec" name="Changes" comment="feat: add user, removw user in tkinter">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -167,7 +167,7 @@
       <workItem from="1734211808409" duration="124000" />
       <workItem from="1734346113605" duration="9259000" />
       <workItem from="1734449635294" duration="49000" />
-      <workItem from="1736493795937" duration="3723000" />
+      <workItem from="1736493795937" duration="6370000" />
     </task>
     <task id="LOCAL-00001" summary="Chore: add new user">
       <option name="closed" value="true" />
@@ -217,7 +217,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734355412748</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="feat: add user, removw user in tkinter">
+      <option name="closed" value="true" />
+      <created>1736497944955</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1736497944955</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,11 +250,12 @@
     <MESSAGE value="feat: spatial data scrapping, single and multi map functions" />
     <MESSAGE value="feat: gui map" />
     <MESSAGE value="feat: gui map new user class" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: gui map new user class" />
+    <MESSAGE value="feat: add user, removw user in tkinter" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add user, removw user in tkinter" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/mapbook_pg$map_functions.coverage" NAME="map_functions Coverage Results" MODIFIED="1733749250303" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mapbook" />
-    <SUITE FILE_PATH="coverage/mapbook_pg$main.coverage" NAME="main Coverage Results" MODIFIED="1736497533609" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/mapbook_pg$main.coverage" NAME="main Coverage Results" MODIFIED="1736500193959" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/mapbook_pg$notatnik.coverage" NAME="notatnik Coverage Results" MODIFIED="1734354324848" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mapbook" />
   </component>
 </project>
