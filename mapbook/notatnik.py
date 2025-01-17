@@ -1,19 +1,20 @@
 
+import psycopg2 as ps
 
-users: list = [
-    {'name': 'Dominik', 'posts': 1, 'city': 'Poznań'},
-    {'name': 'Julia', 'posts': 1, 'city': 'Zamość'},
-    {'name': 'Patryk', 'posts': 1, 'city': 'Łódź'},
-    {'name': 'Patrycja', 'posts': 1, 'city': 'Zielona_Góra'},
-]
+db_params=ps.connect(user='aaaaaaa',password='aaaaaaa',database='aaaaaaa',
+                     host='localhost',port='5434')
 
-class User:
-    def __init__(self,imie, nazwisko, posts, lokalizacja):
-        self.imie = imie
-        self.nawisko = nazwisko
-        self.posts = posts
-        self.lokalizacja = lokalizacja
 
-user_Marek=User('Marek','aaa','3','aaa')
 
-print(user_Marek.imie)
+
+
+cursor=db_params.cursor()
+query="SELECT name,surname,posts,location,st_astext(coordinates),id FROM public.users ORDER BY id ASC"
+cursor.execute(query)
+users=cursor.fetchall()
+cursor.close()
+
+# print(users)
+for user in users:
+    print(float(user[4][6:-1].split()[0]))
+    print(float(user[4][6:-1].split()[1]))
